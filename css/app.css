@@ -1,0 +1,1872 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+header {
+  align-items: center;
+  display: flex; 
+  background: #061e28; 
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 30px 60px;
+}
+
+main {
+  background: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  text-align: center;
+}
+
+.logo {
+  width: 200px;
+}
+
+.navbar {
+  align-items: center;
+  display: flex;
+  gap: 32px;
+}
+
+nav a {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.multiButton {
+  background: linear-gradient(90deg, rgba(255, 190, 56, 1) 10%, rgba(244, 68, 60, 1) 50%, rgba(156, 51, 117, 1) 90%);
+  border-radius: 24px;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: "Lexend Deca", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  cursor: pointer; 
+}
+
+.rightHeader {
+  display: flex;
+  gap: 2rem;
+  margin-right: 60px;
+}
+
+#headerCart {
+  width: 48px;
+  height: 48px;
+}
+
+footer {
+  background: #061e28;
+  padding-top: 3rem;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 60px;
+  padding-left: 60px;
+}
+
+.footerSection1 {
+  display: flex;
+  flex-direction: column;
+  color: #b1b5b9;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  width: 40%;
+}
+
+.footerSection1 p {
+  width: 60%;
+}
+
+.footerSection2, .footerSection3, .footerSection4 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  width: 20%;
+
+}
+
+.footerLinks h3 {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.footerLinks h2 {
+  color: #b1b5b9;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  width: 24px;
+}
+
+.footerForm {
+  margin-top: 3rem;
+  padding-bottom: 24px;
+  background: linear-gradient(180deg, rgba(6, 30, 40, 1) 3%, rgba(0, 134, 149, 1) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footerForm h3 {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.footerForm p {
+  color: #b1b5b9;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.footerForm input {
+  background: #e4eff5;
+  height: 48px;
+  width: 400px;
+  font-size: 16px;
+  font-family: "Lexend Deca", Helvetica;
+  font-weight: 400;
+  color: #b1b5b9;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  margin-right: 24px;
+}
+
+.copyrightSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #061e28;
+  color: #b1b5b9;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  padding: 24px 60px;
+}
+
+.legalLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.heroSection {
+  background: #061e28;
+}
+
+.heroTitle {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.magicContainer {
+  position: relative;
+  display: inline-block;
+}
+
+#magicBase {
+  top: 0;
+  left: 0;
+  height: 110px;
+}
+
+#magicOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 110px;
+  animation: magic-fade 2s ease-in-out infinite;
+}
+
+@keyframes magic-fade {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1; 
+  }
+}
+
+.heroBody {
+  display: flex;
+  gap: 60px;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 50%;
+  margin-left: 60px;
+}
+
+#heroDescription {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.heroButtonContainer {
+  display: flex;
+  height: fit-content;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.heroButton {
+  width: 50%;
+}
+
+.inputSearch {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: #b1b5b9 1px solid;
+  border-radius: 24px;
+  padding: 12px 16px;
+  width: 100%;
+}
+
+.inputSearch input {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-family: "Lexend Deca", Helvetica;
+  font-weight: 400;
+  color: #b1b5b9;
+  width: 100%;
+}
+
+.styleTagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.styleTag {
+  background: transparent;
+  border: #008695 1px solid;
+  width: fit-content;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-family: "Lexend Deca", Helvetica;
+  font-weight: 400;
+  color: #b1b5b9;
+}
+
+.sectionHeading {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 48px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#featuredPacksContainer {
+  display: flex; 
+  margin: auto 6rem;
+  gap: 24px;
+  justify-content: center;
+  padding: 24px;
+}
+
+.packCard {
+  display: flex;
+  flex-direction: column;
+  border: #b1b5b9 1px solid;
+  border-radius: 8px;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  background: #ffffff;
+  margin: 0 auto;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: #e4eff5;
+  border: none;
+}
+
+.cardImageContainer {
+  line-height: 0;    
+  font-size: 0;     
+  overflow: hidden; 
+  background: transparent; 
+  border: none;          
+  outline: none;
+}
+
+.cardImage {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border: none;
+  outline: none;
+  margin: -1px 0;
+}
+
+.cardLine1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardPrice {
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.cardTags {
+  display: flex;
+  gap: 8px;
+}
+
+.cardTag {
+  background: transparent;
+  border: #008695 1px solid;
+  width: fit-content;
+  border-radius: 24px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-family: "Lexend Deca", Helvetica;
+  font-weight: 400;
+  color: #008695;
+  align-content: center;
+}
+
+.promptCount {
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cardMoreInfo {
+  background: #008695;
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+  width: fit-content;
+}
+
+.cardLastLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline  ;
+}
+
+.promptCount {
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cardTitle {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cardDescription {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  min-height: 4.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardButtonIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.cardButton {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+} 
+
+#trustSection {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  background: #e4eff5;
+  justify-content: center;
+}
+
+.trustBadge {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 300px;
+  border: #008695 1px solid;
+  border-radius: 8px;
+  padding: 32px 48px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.trustIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.trustTitle {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.trustDescription {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#whySection {
+  background: #008695;
+  width: 70%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 60px 40px;
+  border-radius: 24px;
+}
+
+#whyHeading {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.whyContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 48px;
+  gap: 30px;
+}
+
+.whyTitle {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.whyPoint {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  max-width: 240px;
+  text-align: center;
+}
+
+.whyDescription {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.whyIcon {
+  width: 48px;
+  height: 48px;
+}
+
+#featuredSection {
+  margin: 3rem auto;
+}
+
+.aboutHeroContent {
+  background-image: url("../assets/images/aboutHeroBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#teamImage {
+  width: 90%;
+  height: auto;
+  align-self: center;
+  margin-bottom: ;
+}
+
+#aboutTitle1 {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 60px;
+  font-weight: 600;
+  align-self: center;
+  margin-top: 5rem;
+}
+
+#aboutTitle2 {
+  color: #ffbe38;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 60px;
+  font-weight: 600;
+  align-self: center;
+}
+
+#aboutSubtitle {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  align-self: center;
+  text-align: center;
+}
+
+.blueContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 2rem auto;
+  width: 70%;
+  border-radius: 24px;
+  border: #008695 1px solid;
+  padding: 3rem;
+  max-width: 1200px;
+  background: #e4eff5;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);
+}
+
+.blueContainerHeader {
+  display: flex;
+  justify-content: left;
+  gap: 12px;
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.blueContainer p {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.blueContainerHeaderIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.whoPointContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-left: 2rem;
+}
+
+.whoPoints h3 {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.whoPoints {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 16px;
+}
+
+#whoPoint1, #whoPoint5 {
+  border-left: #ffbe38 4px solid;
+}
+
+#whoPoint2 {
+  border-left: #9C3375 4px solid;
+}
+
+#whoPoint3 {
+  border-left: #F4443C 4px solid;
+}
+
+#whoPoint4 {
+  border-left: #008695 4px solid;
+}
+
+.whatContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+} 
+
+.whatItem {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  text-align: left;
+}
+
+.whatText {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.whatText h3 {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+#philosophySection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 3rem auto;
+  width: 70%;
+  max-width: 1200px;
+}
+
+.philosophyPointContainer {
+  display: flex;
+  background: #e4eff5;
+  gap: 24px;
+  padding: 1rem;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.arrow {
+  border: solid #008695;
+  border-width: 0 3px 3px 0; /* Creates the angled lines */
+  display: inline-block;
+  padding: 3px; /* Controls the size of the arrow head */
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg); /* For wider browser support */
+}
+
+#philosophyHeader {
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: left;
+}
+
+#readyCTA {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin: 3rem auto;
+}
+
+.libraryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 40px 24px; 
+  max-width: 1250px; 
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+.productDetailsContainer {
+  display: flex;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 20px;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  color: #061e28;
+}
+
+.productImageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 1rem;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.thumbnailGrid {
+  display: flex;
+  justify-content: space-between;
+  gap: auto;
+  width: 100%;
+}
+
+.ratings {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.starRating {
+  display: flex;
+  gap: 4px;
+}
+
+.ratingStar {
+  display: flex;
+  gap: 4px;
+  height: 24px;
+}
+
+.packPurchaseContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  background: #008695;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.packDetailsRow1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.packPrice {
+  color: #ffbe38;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.purchaseCartIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.whiteButton {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+}
+
+.packDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #061e28;
+  background: #e4eff5;
+  border: #008695 1px solid;
+  padding: 3rem;
+  border-radius: 24px;
+}
+
+.packDetailsLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2rem;
+}
+
+.productHeading {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.includedPromptsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto;}
+
+.promptItemContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e4eff5;
+  border: #008695 1px solid;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.unlimitedCTAContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  background: #008695;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  font-family: "Lexend Deca", Helvetica;
+}
+
+#accountMain {
+  background: #ffffff;
+  width: 70%;
+  max-width: 1200px;  
+  margin: 3rem auto;
+}
+
+.accountHeading {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.manageSubscriptionContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #008695;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  font-family: "Lexend Deca", Helvetica;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.accountSummaryContainer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 3rem auto;
+}
+
+.accountStatContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #e4eff5;
+  border: #008695 1px solid;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 30%;
+}
+
+.accountStatContainer h3 {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.accountStatContainer p {
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.purchasedPacksContainer {
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.accountSettingsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #e4eff5;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+  margin-top: 3rem;
+}
+
+.purchasedCardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.purchasedCardContainer h2 {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.settingsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: #008695 1px solid;
+}
+
+.editButton {
+  background: #ffffff;
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+#contactTop {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 3rem auto;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+  background: #008695;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 3rem;
+  font-family: "Lexend Deca", Helvetica;
+}
+
+#contactFormHeading {
+  display: flex;
+  align-items: left;
+  gap: 16px;
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.contactForm input, .contactForm textarea {
+  background: #e4eff5;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: "Lexend Deca", Helvetica;
+  font-weight: 400;
+  color: #061e28;
+}
+
+.contactFormMessage {
+  margin-top: 3rem;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #ffffff;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+  font-family: "Lexend Deca", Helvetica;
+  text-align: left;
+}
+
+.contactInfo h2 {
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.contactInfoHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contactTopRight  {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.supportContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: #e4eff5;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.viewPlansButton {
+  background: #008695;
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+}
+
+#faqHeading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+#faqContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 3rem auto;
+  max-width: 1200px;
+  text-align: left;
+}
+
+.faqItem {
+  display: flex;
+  justify-content: space-between;
+  background: #e4eff5;
+  border: #008695 1px solid;
+  border-radius: 8px;
+  padding: 1rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+#questionIcon {
+  width: 32px;
+  height: 32px;
+}
+
+#refundPolicyContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #e4eff5;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+}
+
+#refundPolicyContainer h2 {
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+#refundPolicyContainer h3 {
+  margin-bottom: -0.7rem;
+}
+
+.plansContainer {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bluePlanCard, .whitePlanCard {
+  width: 380px;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.whitePlanCard {
+  min-height: 620px; 
+  position: relative; 
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.bluePlanCard {
+  background: #008695;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.customBullets1, .customBullets2, .customDownloadBullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.customBullets1 li {
+  display: flex;        
+  align-items: flex-start; 
+  gap: 12px;            
+  text-align: left;
+}
+
+.customDownloadBullets li {
+  display: flex;        
+  align-items: flex-start; 
+  gap: 12px;            
+  text-align: left;
+}
+
+.customBullets1 li::before {
+  content: "✓";
+  color: #ffbe38;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.customBullets2 li {
+  display: flex;        
+  align-items: flex-start; 
+  gap: 12px;            
+  text-align: left;
+}
+
+.customBullets2 li::before {
+  content: "✓";
+  color: #008695; 
+  font-weight: 700;
+  flex-shrink: 0;       
+}
+
+.customDownloadBullets li::before {
+  content: url(../assets/images/downloadIcon.svg);
+  color: #061e28;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.plansHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.plansHeader h2 {
+  margin-top: 2rem;
+}
+
+.plansHeader h1 {
+  font-size: 48px;
+}
+
+.plansSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 3rem auto;
+}
+
+.mostPopularContainer {
+  position: absolute;
+  top: -20px; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #008695;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 8px 20px;
+  width: max-content;
+  z-index: 10;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.planPrice {
+  font-size: 48px;
+  font-weight: 700;
+  color: inherit; 
+}
+
+.bluePlanCard .planPrice {
+  color: #ffbe38;
+}
+
+.whitePlanCard .planPrice {
+  color: #008695;
+}
+
+.greenButton {
+  background: #008695;
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 48px;
+  align-self: center;
+}
+
+#individualPacks {
+  text-align: center;
+}
+
+#includedContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);
+ 
+}
+
+#includedContainer h2 {
+  color: #008695;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+#includedChart {
+  width: 100%;
+  height: auto;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Lexend Deca", Helvetica;
+}
+
+.comparisonTable thead th {
+  padding: 20px;
+  text-align: center;
+  color: #061e28;
+  font-weight: 600;
+  font-size: 18px;
+  border-bottom: #008695 2px solid;
+}
+
+.comparisonTable thead th:first-child {
+  text-align: left;
+}
+
+.comparisonTable td {
+  padding: 18px 20px;
+  text-align: center;
+  color: #061e28;
+  font-size: 16px;
+}
+
+.comparisonTable td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
+.comparisonTable tbody tr:nth-child(odd) {
+  background-color: transparent;
+}
+
+.comparisonTable tbody tr:nth-child(even) {
+  background-color: #e4eff5; 
+}
+
+.comparison-table td.check {
+  color: #008695;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.faqSection2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.faqContainer2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.faqItem2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #008695;
+  color: #ffffff;  
+  border-radius: 8px;
+  padding: 2rem;
+  align-items: left;
+}
+
+.faqItem2 h3 {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.faqItem2 p {
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.faqSection2 h2 {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subscriptionContainer {
+  display: flex;
+  max-width: 1200px;
+  margin: 3rem auto;
+}
+
+.summaryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 3rem;
+  width: 50%;
+}
+
+.orderPlan {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #e4eff5;
+  color: #061e28;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 2rem;
+  text-align: left;
+}
+
+#planPrice {
+  color: #061e28;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.planPriceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+#saveTag {
+  background: #008695;
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 4px 8px;
+  width: fit-content;
+}
+
+.orderDetails h3 {
+  text-align: left;
+}
+
+.priceBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: #008695 1px solid;
+  border-bottom: #008695 1px solid;
+  padding: 1rem 0;
+  text-align: left;
+}
+
+.priceBreakdownRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalContainer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px;
+  font-weight: 600;
+}
+
+#guaranteeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: ;
+  background: #e4eff5;
+  border: #008695 1px solid;
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  text-align: left;
+  width: 100%;
+}
+
+#checkoutFormHeading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: left;
+  margin-bottom: 2rem;
+}
+
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #e4eff5;
+  color: #061e28;
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 1200px;
+}
+
+.subscriptionFormContainer {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  align-items: stretch; 
+}
+
+.summaryContainer, .checkoutForm {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  border: 1px solid #008695;
+  border-radius: 24px;
+  text-align: left;
+}
+
+.orderPlan {
+  background: #e4eff5;
+  border: 1px solid #008695;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 20px 0;
+}
+
+#planPrice { 
+  font-size: 42px; 
+  font-weight: 700; 
+  color: #061e28; 
+}
+
+#saveTag { 
+  background: #008695; 
+  color: white; 
+  border-radius: 20px; 
+  padding: 8px 16px; 
+  width: fit-content; 
+  margin-top: 8px;
+}
+
+.inputGroup { 
+  margin-bottom: 3rem; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.inputGroup label { 
+  font-weight: 600; 
+  margin-bottom: 8px; 
+  color: #008695; 
+  font-size: 14px; 
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="name"] {
+  padding: 15px;
+  border: 1px solid #008695;
+  border-radius: 8px;
+}
+
+.topInput { 
+  border-bottom: none; 
+  border-radius: 8px 8px 0 0; 
+}
+
+.splitInput { 
+  display: flex; 
+}
+
+.bottomLeft { 
+  flex: 2; 
+  border-radius: 0 0 0 8px; 
+  border-right: none; 
+}
+
+.bottomRight { 
+  flex: 1; 
+  border-radius: 0 0 8px 0; 
+}
+
+.bottomFull { 
+  border-top: none; 
+  border-radius: 0 0 8px 8px; 
+}
+.termsContainer { 
+  display: flex; 
+  gap: 15px; 
+  align-items: flex-start; 
+  margin: 2rem 0; 
+  font-size: 14px; 
+}
+
+.subscribeBtn { 
+  width: 100%; 
+  height: 60px; 
+  font-size: 20px; 
+  cursor: pointer; 
+}
+
+.secureCheckoutNote {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  gap: 12px; 
+  margin-top: auto; 
+  color: #008695; 
+  font-size: 14px;
+  padding-top: 2rem;
+}
+
+.productSummary {
+  display: flex;
+  gap: 16px;
+}
+
+#downloadMessage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #061e28;
+  justify-content: center;
+  background: #b1b5b9;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.signInContainer, .joinContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+
+.signInForm, .joinForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #008695;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.signInJoinToggle {
+  display: flex;
+  gap: 8px;
+  background: #e4eff5;
+  width: 100%;
+  border-radius: 9px;
+  padding: 4px;
+  justify-content: center;
+}
+
+.activeToggle {
+  background: #ffffff;
+  color: #061e28;
+  border-radius: 8px;
+  padding: 12px 12px;
+  align-content: center;
+  width: 50%;
+}
+
+.inactiveToggle {
+  color: #b1b5b9;
+  padding: 12px 12px;
+  align-content: center;
+  width: 50%;
+  text-decoration: none;
+}
+
+.goldButton {
+  background: #ffbe38;
+  color: #061e28;
+  font-weight: 700;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  align-self: center;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.rememberMeContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.rememberForgot {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.socialButton {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #061e28;
+  color: #ffffff;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  width: 50%;
+}
+
+.socialButtonContainer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.continueLine {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: #ffffff;
+}
+
+.agreeContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: left;
+  margin: 1rem;
+}
+
+#freePackContainer {
+  width: 600px;
+  text-align: left;
+}
+
+.joinInputGroup, .signInInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.joinInputGroup label {
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: left;
+}
+
+.signInInputGroup label {
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: left;
+}
+
+.homeInputSearch {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: #b1b5b9 1px solid;
+  border-radius: 24px;
+  padding: 12px 16px;
+  width: 100%;
+}
+
+.homeInputSearch input {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Lexend Deca", Helvetica;
+  font-weight: 400;
+  background: transparent;
+}
