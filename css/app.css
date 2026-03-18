@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  font-family: "Lexend Deca", Helvetica;
 }
 
 header {
@@ -28,15 +29,49 @@ main {
 .navbar {
   align-items: center;
   display: flex;
-  gap: 32px;
+  gap: 0;
 }
 
 nav a {
   color: #ffffff;
-  font-family: "Lexend Deca", Helvetica;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   text-decoration: none;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a.active {
+  color: #ffffff;
+  font-weight: 700;
+  position: relative;
+  background: linear-gradient(335deg, rgba(2, 12, 16, 0.75) 50%, rgba(1, 181, 198, 0.75) 100%);
+  box-shadow: inset 0px 0px 12px rgba(0, 0, 0, 0.65);
+  border-bottom: 2px solid #00e9ff;
+  border-radius: 4px 0 0 0;
+}
+
+.navbar a:hover:not(.active) {
+  background: linear-gradient(180deg, rgba(2, 12, 16, 0.75) 80%, rgba(1, 181, 198, 0.75) 100%);
+  box-shadow: inset 0px 0px 12px rgba(0, 0, 0, 0.65);
+  color: #00e9ff;
+}
+
+.navbar a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 2px;
+  background: #00e9ff;
+  filter: blur(4px);
+  opacity: 0.7;
 }
 
 .multiButton {
@@ -250,6 +285,10 @@ footer {
   width: 50%;
 }
 
+#heroImageContainer {
+  width: 50%;
+}
+
 .inputSearch {
   display: flex;
   align-items: center;
@@ -299,6 +338,7 @@ footer {
 
 #featuredPacksContainer {
   display: flex; 
+  flex-wrap: wrap;
   margin: auto 6rem;
   gap: 24px;
   justify-content: center;
@@ -312,7 +352,8 @@ footer {
   border-radius: 8px;
   box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  min-width: 300px;
   overflow: hidden;
   background: #ffffff;
   margin: 0 auto;
@@ -325,6 +366,7 @@ footer {
   padding: 16px;
   background: #e4eff5;
   border: none;
+  min-height: 200px;
 }
 
 .cardImageContainer {
@@ -442,6 +484,7 @@ footer {
 
 #trustSection {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   align-items: center;
   padding: 24px;
@@ -500,6 +543,7 @@ footer {
 
 .whyContent {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
@@ -633,6 +677,7 @@ footer {
   font-family: "Lexend Deca", Helvetica;
   font-size: 18px;
   font-weight: 600;
+  text-align: left;
 }
 
 .whoPoints {
@@ -693,6 +738,7 @@ footer {
   margin: 3rem auto;
   width: 70%;
   max-width: 1200px;
+  text-align: left;
 }
 
 .philosophyPointContainer {
@@ -706,14 +752,14 @@ footer {
 
 .arrow {
   border: solid #008695;
-  border-width: 0 3px 3px 0; /* Creates the angled lines */
+  border-width: 0 3px 3px 0; 
   display: inline-block;
-  padding: 3px; /* Controls the size of the arrow head */
+  padding: 3px;
 }
 
 .right {
   transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg); /* For wider browser support */
+  -webkit-transform: rotate(-45deg);
 }
 
 #philosophyHeader {
@@ -932,6 +978,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  text-align: left;
 }
 
 .accountSummaryContainer {
@@ -1003,6 +1050,14 @@ footer {
   align-items: center;
   padding: 16px;
   border-bottom: #008695 1px solid;
+}
+
+.settingsRow h2 {
+  text-align: left;
+}
+
+.settingsRow p {
+  text-align: left;
 }
 
 .editButton {
@@ -1869,4 +1924,387 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
   font-family: "Lexend Deca", Helvetica;
   font-weight: 400;
   background: transparent;
+}
+
+/* --- Hide Mobile UI by default --- */
+.mobileHeader, .mobileNav, #mobileHeroImage, #mobileImageContainer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Hide Desktop Elements */
+  header, footer, #heroImageContainer, .productImageContainer { display: none; }
+
+  /* Show Mobile Header */
+  .mobileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 16px;
+    background: #061e28;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .mobileLogo { 
+    width: 180px; 
+  }
+  
+  .mobileHeaderIcons { 
+    display: flex; 
+    align-items: center; 
+  }
+
+  .cartWrapper { 
+    position: relative; 
+  }
+
+  /* --- Bottom Nav (The Cylinder Look) --- */
+  .mobileNav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #061e28;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    border-top: 1px solid rgba(0, 233, 255, 0.1);
+  }
+
+  .navItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    text-decoration: none;
+    color: #008695;
+  }
+
+  .navItem img {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* The "Cylinder" Active State */
+  .navItem.active {
+    background: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,233,255,0.1) 50%, rgba(0,0,0,0.4) 100%);
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+    position: relative;
+    color: #00e9ff;
+  }
+
+  /* Glowing Lines top/bottom of active cylinder */
+  .navItem.active::before, .navItem.active::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    background: #00e9ff;
+    filter: blur(2px);
+  }
+
+  .navItem.active::before { 
+    top: 0; 
+  }
+
+  .navItem.active::after { 
+    bottom: 0; 
+  }
+
+  .navItem span { 
+    font-size: 16px; 
+    margin-top: 4px; 
+  }
+
+  .mobileTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroTitle {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  #mobileHeroImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 0;
+  }
+
+  .heroContent {
+  gap: 24px;
+  width: 100%;
+  margin: 0 2rem 2rem 2rem;
+  }
+
+  .mobileHeroButtons{
+    margin-top: 0;
+  }
+
+  #featuredPacksContainer {
+    margin: 2rem;
+  }
+
+  .trustBadge {
+    width: 400px
+  }
+
+  .trustTitle {
+    font-size: 24px;
+  }
+
+  .trustDescription {
+    font-size: 16px;
+  }
+
+  .whyContent {
+    margin: 2rem
+  }
+
+  .whyTitle {
+    font-size: 24px;
+  }
+
+  #whySection {
+    margin-bottom: 8rem;
+  }
+
+  .plansContainer {
+    flex-wrap: wrap;
+  }
+
+  .bluePlanCard, .whitePlanCard {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .bluePlanCard h2 {
+    font-size: 48px;
+  }
+
+  .whitePlanCard h2 {
+    font-size: 48px;
+  }
+
+  .priceContainer {
+    font-size: 2rem;
+  }
+
+  .customBullets1, .customBullets2 {
+    font-size: 1.2rem;
+  }
+
+  .blueContainer {
+    width: 90%
+  }
+
+  .plansHeader p {
+    font-size: 24px;
+    margin: 0 1rem;
+  }
+
+  .plansHeader h2{
+    font-size: 32px;
+  }
+
+  #aboutTitle1, #aboutTitle2 {
+    font-size: 2rem;
+  }
+
+  .aboutHeroContent {
+    gap: 16px;
+    min-height: 500px;
+  }
+
+  #philosophySection {
+    width: 90%;
+    margin-bottom: 0;
+  }
+
+  #readyCTA {
+    width: 90%;
+    margin: 0 auto 8rem auto;
+  }
+
+  #readyCTA p {
+    font-size: 18px;
+  }
+
+  .whatContainer {
+    grid-template-columns: 1fr;
+  }
+ 
+  #includedContainer {
+    width: 90%;
+  }
+
+  #includedContainer h2 {
+    font-size: 32px;
+  }
+
+  #includedContainer {
+    padding: 2rem;
+  }
+
+  .comparisonTable thead th {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .comparisonTable td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .faqSection2 {
+    width: 90%;
+    margin: 0 auto 8rem auto;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  #contactTop {
+    flex-direction: column;
+    gap: 2rem;
+    width: 90%;
+  }
+
+  .contactForm {
+    width: 100%;
+  }
+
+  #faqContainer {
+    width: 90%;
+    margin-bottom: 0;
+  }
+
+  #refundPolicyContainer {
+    width: 100%;
+    margin-bottom: 7rem;
+    margin-top: 1rem;
+    padding: 2rem;
+  }
+
+  .supportContainer {
+    margin-top: 2rem;
+  }
+
+  #accountMain {
+    width: 90%;
+    margin: 1rem auto 8rem auto;
+  }
+
+  .accountStatContainer h3 {
+    font-size: 20px;
+  }
+
+  .accountStatContainer p {
+    font-size: 20px;
+  }
+
+  .purchasedPacksContainer h2 {
+    font-size: 32px;
+  }
+
+  .purchasedCardContainer {
+    grid-template-columns: 1fr;
+  }
+
+  #freePackContainer {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  .libraryGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 7rem;
+  }
+
+  .productInfo {
+    gap: 16px;
+    text-align: left;
+  }
+
+  .packDetailsContainer {
+    padding: 2rem;
+  }
+
+  .includedPromptsContainer {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .includedPromptsContainer p {
+    text-align: left;
+    margin-right: 3rem;
+  }
+
+  .unlimitedCTAContainer {
+    width: 90%;
+    padding: 2rem;
+    margin-bottom: 7rem;
+  }
+
+  .mobileThumbnailGrid {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+
+  .mobileMainImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  #mobileImageContainer {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0;
+  }
+
+  .productDetailsContainer {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+  }
+
+  .subscriptionFormContainer {
+    flex-direction: column;
+    gap: 2rem;
+    font-size: larger;
+  }
+
+  .summaryContainer, .checkoutForm {
+    width: 90%;
+    align-self: center;
+  }
+
+  .checkoutForm {
+    margin-bottom: 7rem;
+  }
+
+  .inputGroup {
+    margin-bottom: 2rem;
+  }
+
+  .inputGroup label {
+    font-size: 16px;
+  }
+
 }

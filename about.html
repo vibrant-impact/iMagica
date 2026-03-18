@@ -15,9 +15,9 @@
     </a>
     <nav class="navbar">
       <a href="index.html">Home</a>
-      <a href="library.html">Browse Prompts</a>
+      <a href="library.html">Search</a>
       <a href="plans.html">Pricing</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="rightHeader">
@@ -25,6 +25,16 @@
       <a href="signIn.html"><button class="multiButton">Sign-in</button></a>
     </div>
   </header>
+
+  <div class="mobileHeader">
+    <a href="index.html"><img src="assets/images/logo.svg" alt="iMagica Logo" class="mobileLogo"></a>
+    <div class="mobileHeaderIcons">
+      <div class="rightHeader">
+        <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+      </div>
+      <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
+    </div>
+  </div>
 
   <section class="aboutHeroSection">
     <div class="aboutHeroContent">
@@ -141,12 +151,30 @@
     <div id="readyCTA">
       <h2 class="sectionHeading">Ready to Start Creating?</h2>
       <p>Join thousands of creators using Imagica to bring their visions to life.</p>
-      <a href="browse.html"><button class="multiButton">Explore Prompt Library</button></a>
+      <a href="library.html"><button class="multiButton">Explore Prompt Library</button></a>
     </div>
 
 
   </main>
 
+  <nav class="mobileNav">
+    <a href="index.html" class="navItem">
+      <img src="assets/images/homeIcon.svg" alt="">
+    </a>
+    <a href="library.html" class="navItem">
+      <img src="assets/images/searchIcon.svg" alt="">
+    </a>
+    <a href="plans.html" class="navItem">
+      <img src="assets/images/priceIcon.svg" alt="">
+    </a>
+    <a href="about.html" class="navItem active">
+      <img src="assets/images/infoIconActive.svg" alt="">
+      <span>About</span>
+    </a>
+    <a href="contact.html" class="navItem">
+      <img src="assets/images/messageIcon.svg" alt="">
+    </a>
+  </nav>
 
   <footer>
     <div class="footerLinks">
@@ -165,7 +193,7 @@
       </div>
       <div class="footerSection2">
         <h3>Product</h3>
-        <h2>Browse Library</h2>
+        <h2>Search</h2>
         <h2>Pricing</h2>
         <h2>My Library</h2>
         <h2>New Releases</h2>

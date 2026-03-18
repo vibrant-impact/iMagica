@@ -15,8 +15,8 @@
       <img class="logo" src="assets/images/logo.svg" alt="iMagica Logo">
     </a>
     <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="library.html">Browse Prompts</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="library.html">Search</a>
       <a href="plans.html">Pricing</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -27,8 +27,18 @@
     </div>
   </header>
 
+  <div class="mobileHeader">
+    <a href="index.html"><img src="assets/images/logo.svg" alt="iMagica Logo" class="mobileLogo"></a>
+    <div class="mobileHeaderIcons">
+      <div class="rightHeader">
+        <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+      </div>
+      <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
+    </div>
+  </div>
+
   <section class="heroSection">
-    <div class="heroTitle">
+    <div class="heroTitle mobileTitle">
       <h1>Create</h1>
       <div class="magicContainer">
         <img id="magicBase" src="assets/images/magic1.svg" alt="Magic Animation">
@@ -36,20 +46,23 @@
       </div>
       <h1>with AI Prompts</h1>
     </div>
+    <div id="mobileHeroImage">
+      <img src="assets/images/heroImage.png" alt="Robot with a paintbrush creating art">
+    </div>
     <div class="heroBody">
-      <div class="heroContent">
-        <div class="heroButtonContainer">
+      <div class="heroContent mobileHeroContent">
+        <div class="heroButtonContainer mobileHeroButtons">
           <button class="multiButton heroButton">Browse Prompt Packs</button>
           <button class="multiButton heroButton">Join Subscription Library</button>
         </div>
-        <p id="heroDescription">Premium prompt packs to unlock your creative potential. Browse hundreds of curated AI
+        <p id="heroDescription" class="mobileHeroDescription">Premium prompt packs to unlock your creative potential. Browse hundreds of curated AI
           prompts for stunning results.</p>
-        <div class="homeInputSearch">
+        <div class="homeInputSearch mobileHomeInputSearch">
           <img src="assets/images/searchIcon.svg" alt="Search Icon">
           <input type="text" placeholder="Search for prompts, styles, or categories...">
         </div>
         <div>
-          <div class="styleTagContainer">
+          <div class="styleTagContainer mobileStyleTagContainer">
             <p class="styleTag">Character Design</p>
             <p class="styleTag">Landscapes</p>
             <p class="styleTag">Abstract</p>
@@ -225,7 +238,24 @@
 
   </main>
 
-
+  <nav class="mobileNav">
+    <a href="index.html" class="navItem active">
+      <img src="assets/images/homeIconActive.svg" alt="">
+      <span>Home</span>
+    </a>
+    <a href="library.html" class="navItem">
+      <img src="assets/images/searchIcon.svg" alt="">
+    </a>
+    <a href="plans.html" class="navItem">
+      <img src="assets/images/priceIcon.svg" alt="">
+    </a>
+    <a href="about.html" class="navItem">
+      <img src="assets/images/infoIcon.svg" alt="">
+    </a>
+    <a href="contact.html" class="navItem">
+      <img src="assets/images/messageIcon.svg" alt="">
+    </a>
+  </nav>
 
   <footer>
     <div class="footerLinks">
@@ -244,7 +274,7 @@
       </div>
       <div class="footerSection2">
         <h3>Product</h3>
-        <h2>Browse Library</h2>
+        <h2>Search</h2>
         <h2>Pricing</h2>
         <h2>My Library</h2>
         <h2>New Releases</h2>
