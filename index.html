@@ -9,6 +9,9 @@
 </head>
 
 <body>
+  <div class="demoBanner">
+      ⚠️ STUDY PROJECT ONLY: Please do not enter real personal or credit card information.
+  </div>
 
   <header>
     <a href="index.html">
@@ -22,7 +25,10 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="rightHeader">
-      <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+      <a href="checkoutProduct.html" class="cartIconContainer">
+        <img class="cartIconMain" src="assets/images/cartIcon.svg" alt="cart icon">
+        <span id="cartCounter" class="cartBadge">0</span>
+      </a>
       <a href="signIn.html"><button class="multiButton">Sign-in</button></a>
     </div>
   </header>
@@ -31,9 +37,12 @@
     <a href="index.html"><img src="assets/images/logo.svg" alt="iMagica Logo" class="mobileLogo"></a>
     <div class="mobileHeaderIcons">
       <div class="rightHeader">
-        <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+        <a href="checkoutProduct.html" class="cartIconContainer">
+          <img class="cartIconMain" src="assets/images/cartIcon.svg" alt="cart icon">
+          <span class="cartBadge">0</span>
+        </a>
+        <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
       </div>
-      <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
     </div>
   </div>
 
@@ -50,21 +59,21 @@
       <img src="assets/images/heroImage.png" alt="Robot with a paintbrush creating art">
     </div>
     <div class="heroBody">
-      <div class="heroContent mobileHeroContent">
-        <div class="heroButtonContainer mobileHeroButtons">
-          <button class="multiButton heroButton">Browse Prompt Packs</button>
-          <button class="multiButton heroButton">Join Subscription Library</button>
+      <div class="heroContent">
+        <div class="heroButtonContainer">
+          <a href="library.html"><button class="multiButton">Browse Prompt Packs</button></a>
+          <a href="plans.html"><button class="multiButton">Join Subscription Library</button></a>
         </div>
         <p id="heroDescription" class="mobileHeroDescription">Premium prompt packs to unlock your creative potential. Browse hundreds of curated AI
           prompts for stunning results.</p>
-        <div class="homeInputSearch mobileHomeInputSearch">
+        <div class="homeInputSearch">
           <img src="assets/images/searchIcon.svg" alt="Search Icon">
-          <input type="text" placeholder="Search for prompts, styles, or categories...">
+          <input type="text" id="homeHeroSearch" placeholder="Search for prompts, styles, or categories...">
         </div>
         <div>
           <div class="styleTagContainer mobileStyleTagContainer">
             <p class="styleTag">Character Design</p>
-            <p class="styleTag">Landscapes</p>
+            <p class="styleTag">Landscape</p>
             <p class="styleTag">Abstract</p>
             <p class="styleTag">Fashion</p>
             <p class="styleTag">Watercolor</p>
@@ -91,7 +100,7 @@
             <p class="styleTag">Pixar</p>
           </div>
         </div>
-        <button class="multiButton">View All Packs</button>
+        <a href="library.html"><button class="homeMultiButton">View All Packs</button></a>
       </div>
       <div id="heroImageContainer">
         <img id="heroImage" src="assets/images/heroImage.png" alt="Robot with a paintbrush creating art">
@@ -316,5 +325,6 @@
     </div>
   </footer>
 </body>
+<script src="js/app.js"></script>
 
 </html>

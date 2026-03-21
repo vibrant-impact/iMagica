@@ -9,6 +9,9 @@
 </head>
 
 <body>
+  <div class="demoBanner">
+      ⚠️ STUDY PROJECT ONLY: Please do not enter real personal or credit card information.
+  </div>
   <header>
     <a href="index.html">
       <img class="logo" src="assets/images/logo.svg" alt="iMagica Logo">
@@ -21,7 +24,10 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="rightHeader">
-      <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+      <a href="checkoutProduct.html" class="cartIconContainer">
+        <img class="cartIconMain" src="assets/images/cartIcon.svg" alt="cart icon">
+        <span class="cartBadge">0</span>
+      </a>
       <a href="signIn.html"><button class="multiButton">Sign-in</button></a>
     </div>
   </header>
@@ -30,9 +36,12 @@
     <a href="index.html"><img src="assets/images/logo.svg" alt="iMagica Logo" class="mobileLogo"></a>
     <div class="mobileHeaderIcons">
       <div class="rightHeader">
-        <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
-      </div>
-      <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
+        <a href="checkoutProduct.html" class="cartIconContainer">
+          <img class="cartIconMain" src="assets/images/cartIcon.svg" alt="cart icon">
+          <span class="cartBadge">0</span>
+        </a>
+        <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
+       </div>
     </div>
   </div>
 
@@ -44,14 +53,7 @@
       <div class="summaryContainer">
         <h2>Order Summary</h2>
 
-        <div class="productSummary">
-          <img src="assets/images/packThumbnail1.png" alt="Pack Thumbnail">
-          <div class="productDetails">
-            <h3>Fantasy Landscape Collection</h3>
-            <h3>$15</h3>
-          </div>
-
-        </div>
+        <div id="cartItemsList"></div>
 
         <div class="orderPlan">
           <h3>What's Included:</h3>
@@ -65,19 +67,23 @@
         </div>
 
         <div class="priceBreakdown">
-          <div class="priceBreakdownRow">
-            <p>Pack Price</p>
-            <p>$15</p>
-          </div>
-          <div class="priceBreakdownRow">
-            <p>Tax</p>
-            <p>$0.00</p>
-          </div>
+            <div class="priceBreakdownRow">
+              <p>Subtotal</p>
+              <p id="subtotalAmount">$0.00</p>
+            </div>
+            <div class="priceBreakdownRow">
+              <p>GST (5%)</p>
+              <p id="gstAmount">$0.00</p>
+            </div>
+        </div>
+        
           <div class="totalContainer">
             <p>Total</p>
-            <p>$15</p>
+            <p id="totalAmount">$0.00</p>
           </div>
-        </div>
+       
+          
+        
 
         <div id="guaranteeContainer">
           <h3>Save More with Subscription</h3>
@@ -223,5 +229,5 @@
     </div>
   </footer>
 </body>
-
+<script src="js/app.js"></script>
 </html>

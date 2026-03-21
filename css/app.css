@@ -23,7 +23,15 @@ main {
 }
 
 .logo {
-  width: 13rem;
+  width: 12rem;
+}
+
+.demoBanner {
+  background: #F4443C;
+  color: #ffffff;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .navbar {
@@ -80,14 +88,29 @@ nav a {
   border: none;
   padding: 12px 24px;
   font-size: 16px;
-  font-family: "Lexend Deca", Helvetica;
-  font-weight: 400;
   color: #ffffff;
   cursor: pointer; 
   white-space: nowrap;
 }
 
 .multiButton:hover {
+  background: linear-gradient(90deg, rgba(255, 189, 56, 0.7) 20%, rgba(244, 69, 60, 0.7) 50%, rgba(156, 51, 118, 0.7) 80%);
+  color: #061e28ac;
+}
+
+.homeMultiButton {
+  background: linear-gradient(90deg, rgba(255, 190, 56, 1) 10%, rgba(244, 68, 60, 1) 50%, rgba(156, 51, 117, 1) 90%);
+  border-radius: 24px;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer; 
+  white-space: nowrap;
+  width: 100%;
+}
+
+.homeMultiButton:hover {
   background: linear-gradient(90deg, rgba(255, 189, 56, 0.7) 20%, rgba(244, 69, 60, 0.7) 50%, rgba(156, 51, 118, 0.7) 80%);
   color: #061e28ac;
 }
@@ -101,6 +124,44 @@ nav a {
 #headerCart {
   width: 3rem;
   height: 3rem;
+}
+
+.cartIconContainer {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.cartIconMain {
+  width: 2.5rem;
+  height: 2.5em;
+  display: block;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -7px;
+  right: -4px;
+  background-color: #F4443C;
+  color: #ffffff !important; 
+  font-size: 0.8rem;
+  font-weight: 700;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 2px solid #061e28;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-align: center;
+  padding: 0;
+  overflow: hidden;
+  z-index: 10;   
+}
+
+.cartBadge.show {
+  display: flex;
 }
 
 footer {
@@ -208,9 +269,9 @@ footer {
   justify-content: center;
   gap: 2rem;
   color: #ffffff;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
-  margin: 0 3rem;
+  margin: 0 2rem;
 }
 
 .magicContainer {
@@ -221,14 +282,14 @@ footer {
 #magicBase {
   top: 0;
   left: 0;
-  height: 7rem;
+  height: 6rem;
 }
 
 #magicOverlay {
   position: absolute;
   top: 0;
   left: 0;
-  height: 7rem;
+  height: 6rem;
   animation: magic-fade 2s ease-in-out infinite;
 }
 
@@ -306,6 +367,8 @@ footer {
   padding: 0.4rem 0.8rem;
   font-size: 0.875rem;
   color: #b1b5b9;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .styleTag:hover {
@@ -322,10 +385,8 @@ footer {
 }
 
 #featuredPacksContainer {
-  display: flex; 
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .packCard {
@@ -334,10 +395,8 @@ footer {
   border: #b1b5b9 1px solid;
   border-radius: 8px;
   box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);
-  width: 100%;
-  max-width: 400px;
-  min-width: 300px;
   overflow: hidden;
+  max-width: 350px;
   background: #e4eff5;
   margin: 0 auto;
 }
@@ -395,6 +454,14 @@ footer {
   font-size: 0.75rem;
   color: #008695;
   align-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cardTag:hover {
+  background-color: #008695;
+  color: #ffffff !important;
+  border-color: #008695;
 }
 
 .promptCount {
@@ -448,9 +515,8 @@ footer {
 } 
 
 #trustSection {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   align-items: center;
   padding: 2rem;
   background: #e4eff5;
@@ -465,7 +531,7 @@ footer {
   width: 20rem;
   border: #008695 1px solid;
   border-radius: 8px;
-  padding: 2rem 3rem;
+  padding: 1rem 2rem;
   background: #ffffff;
   text-align: center;
 }
@@ -488,7 +554,6 @@ footer {
 
 #whySection {
   background: #008695;
-  width: 90%;
   max-width: 1200px;
   margin: 3rem auto;
   padding: 3rem 2rem;
@@ -503,11 +568,9 @@ footer {
 }
 
 .whyContent {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
   gap: 2rem;
 }
@@ -1541,8 +1604,13 @@ footer {
   color: #061e28;
   border: #008695 1px solid;
   border-radius: 24px;
-  padding: 2rem;
+  padding: 2rem 1rem 1rem 2rem;
   text-align: left;
+  margin-bottom: 2rem;
+}
+
+#cartItemsList {
+  margin-top: 2rem;
 }
 
 #planPrice {
@@ -1583,6 +1651,7 @@ footer {
   justify-content: space-between;
   gap: 4px;
   font-weight: 600;
+  margin-bottom: 2rem;
 }
 
 #guaranteeContainer {
@@ -1637,6 +1706,11 @@ footer {
   border: 1px solid #008695;
   border-radius: 24px;
   text-align: left;
+}
+
+#guaranteeContainer, 
+.secureCheckoutNote {
+  margin-top: auto; 
 }
 
 #saveTag { 
@@ -1720,6 +1794,13 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
 .productSummary {
   display: flex;
   gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #008695;
+}
+
+.productSummary:last-of-type {
+  border-bottom: none;
 }
 
 #downloadMessage {
@@ -1882,7 +1963,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
   gap: 1rem;
   border: #b1b5b9 1px solid;
   border-radius: 24px;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   width: 100%;
 }
 
@@ -1891,6 +1972,102 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
   width: 100%;
   font-size: 1.25rem;
   background: transparent;
+  color: #ffffff;
+  outline: none;
+}
+
+.homeInputSearch:focus-within {
+  border-color: #00e9ff;
+  box-shadow: 0 0 8px rgba(0, 233, 255, 0.3);
+}
+
+.searchSortContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1250px;
+  margin: 0 auto 2rem auto;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: #b1b5b9 1px solid;
+  border-radius: 24px;
+  padding: 0.8rem 1.5rem;
+  flex: 2;
+  background: #ffffff;
+}
+
+.searchWrapper input {
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  outline: none;
+}
+
+.sortWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+#sortPacks {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #008695;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.v2-note {
+  text-align: center;
+  color: #b1b5b9;
+  margin: 4rem 0;
+  font-style: italic;
+}
+
+/* --- Animation Keyframes --- */
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* The class we will trigger with JS */
+.fadeIn {
+  animation: fadeInCard 0.4s ease-out forwards;
+}
+
+#noResultsMessage {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  gap: 1.5rem;
+  color: #061e28;
+  width: 100%;
+}
+
+.noResultsIcon {
+  width: 4rem;
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+
+#noResultsMessage h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+#noResultsMessage p {
+  color: #b1b5b9;
+  max-width: 400px;
 }
 
 /* --- Hide Mobile UI by default --- */
@@ -1904,8 +2081,12 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
     display: none;
   }
 
+  .packCard {
+    max-width: 100%; 
+  }
+
   .libraryGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 3rem;
   }
@@ -2237,5 +2418,15 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
   .inputGroup label {
     font-size: 1rem;
   }
+
+  .searchSortContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .searchWrapper, .sortWrapper { 
+    width: 100%; 
+    justify-content: center; 
+  }
+
 
 }

@@ -9,6 +9,9 @@
 </head>
 
 <body>
+  <div class="demoBanner">
+      ⚠️ STUDY PROJECT ONLY: Please do not enter real personal or credit card information.
+  </div>
   <header>
     <a href="index.html">
       <img class="logo" src="assets/images/logo.svg" alt="iMagica Logo">
@@ -21,7 +24,10 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="rightHeader">
-      <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+      <a href="checkoutProduct.html" class="cartIconContainer">
+        <img class="cartIconMain" src="assets/images/cartIcon.svg" alt="cart icon">
+        <span class="cartBadge">0</span>
+      </a>
       <a href="signIn.html"><button class="multiButton">Sign-in</button></a>
     </div>
   </header>
@@ -30,17 +36,46 @@
     <a href="index.html"><img src="assets/images/logo.svg" alt="iMagica Logo" class="mobileLogo"></a>
     <div class="mobileHeaderIcons">
       <div class="rightHeader">
-        <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+        <a href="checkoutProduct.html" class="cartIconContainer">
+          <img class="cartIconMain" src="assets/images/cartIcon.svg" alt="cart icon">
+          <span class="cartBadge">0</span>
+        </a>
       </div>
-      <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
+        <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
+      </div>  
     </div>
   </div>
 
   <main>
     <h1 class="sectionHeading">Your Ultimate Prompt Library</h1>
+
+    <div class="searchSortContainer">
+    <div class="searchWrapper">
+        <img src="assets/images/searchIcon.svg" alt="Search Icon">
+        <input type="text" id="librarySearch" placeholder="Search by style, category, or title...">
+      </div>
+      
+      <div class="sortWrapper">
+        <label for="sortPacks">Sort by:</label>
+        <select id="sortPacks">
+          <option value="default">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to High</option>
+          <option value="title">Alphabetical (A-Z)</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="noResultsMessage" style="display: none;">
+      <img src="assets/images/searchIcon.svg" alt="" class="noResultsIcon">
+      <h2>Oops! No prompts found.</h2>
+      <p>Try adjusting your search terms or browsing our categories below.</p>
+      <button class="multiButton" onclick="resetSearch()">Clear Search</button>
+    </div>
+
     <div class="libraryGrid">
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="12" dataTitle="Cyberpunk Character Pack" dataTags="Cyberpunk, Character Design">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product1.png" alt="Cyberpunk Pack">
         </div>
@@ -52,7 +87,7 @@
             </div>
             <p class="cardPrice">$12</p>
           </div>
-          <h3 class="cardTitle">Cyberpunk Character Creator Pack</h3>
+          <h3 class="cardTitle">Cyberpunk Character Pack</h3>
           <p class="cardDescription">Create stunning cyberpunk characters with neon aesthetics and futuristic vibes.
             Perfect for game design and digital art projects.</p>
           <button class="multiButton cardButton">
@@ -65,7 +100,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="15" dataTitle="Fantasy Landscape Collection" dataTags="Landscape, Surrealism">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product2.png" alt="Cyberpunk Pack">
         </div>
@@ -90,7 +125,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="8" dataTitle="Product Photography Pro" dataTags="Still Life, Realism">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product3.png" alt="Cyberpunk Pack">
         </div>
@@ -102,7 +137,7 @@
             </div>
             <p class="cardPrice">$8</p>
           </div>
-          <h3 class="cardTitle">Product Photography Pro Pack</h3>
+          <h3 class="cardTitle">Product Photography Pro</h3>
           <p class="cardDescription">Professional product photography prompts for e-commerce and marketing.</p>
           <button class="multiButton cardButton">
             <img class="cardButtonIcon" src="assets/images/cartIcon.svg" alt=""> Add to Cart
@@ -114,7 +149,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="10" dataTitle="Abstract Art Explorations" dataTags="Abstract, Art">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product4.png" alt="Cyberpunk Pack">
         </div>
@@ -138,7 +173,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="12" dataTitle="Portrait Masterclass" dataTags="Portrait, Realism">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product5.png" alt="Cyberpunk Pack">
         </div>
@@ -162,7 +197,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="12" dataTitle="Anime Character Bundle" dataTags="Anime, Comic">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product6.png" alt="Cyberpunk Pack">
         </div>
@@ -186,7 +221,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="11" dataTitle="Modern Architecture Views" dataTags="Architecture, Realism">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product7.png" alt="Cyberpunk Pack">
         </div>
@@ -210,7 +245,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="9" dataTitle="Watercolor Dreams" dataTags="Landscape, Impressionism">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product8.png" alt="Cyberpunk Pack">
         </div>
@@ -234,7 +269,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="11" dataTitle="Wildlife Wonders" dataTags="Animals, Realism">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product9.png" alt="Cyberpunk Pack">
         </div>
@@ -258,7 +293,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="10" dataTitle="Halloween Horror Pack" dataTags="Horror, Surrealism">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product10.png" alt="Cyberpunk Pack">
         </div>
@@ -282,7 +317,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="13" dataTitle="Art Deco Elegance" dataTags="Art Deco, Impressionism">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product11.png" alt="Cyberpunk Pack">
         </div>
@@ -306,7 +341,7 @@
         </div>
       </div>
 
-      <div class="packCard">
+      <div class="packCard" dataPrice="8" dataTitle="Kids Cartoon Fun" dataTags="Kids, Comic">
         <div class="cardImageContainer">
           <img class="cardImage" src="assets/images/product12.png" alt="Cyberpunk Pack">
         </div>
@@ -331,6 +366,7 @@
       </div>
 
     </div>
+    <p class="v2-note">More packs coming in v2.0</p>
   </main>
 
   <nav class="mobileNav">
@@ -410,6 +446,7 @@
       </div>
     </div>
   </footer>
+  <script src="js/app.js"></script>
 </body>
 
 </html>

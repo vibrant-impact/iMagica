@@ -9,6 +9,9 @@
 </head>
 
 <body>
+  <div class="demoBanner">
+      ⚠️ STUDY PROJECT ONLY: Please do not enter real personal or credit card information.
+  </div>
   <header>
     <a href="index.html">
       <img class="logo" src="assets/images/logo.svg" alt="iMagica Logo">
@@ -21,7 +24,10 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="rightHeader">
-      <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+      <a href="checkoutProduct.html" class="cartIconContainer">
+        <img class="cartIconMain" src="assets/images/cartIcon.svg" alt="cart icon">
+        <span class="cartBadge">0</span>
+      </a>
       <a href="signIn.html"><button class="multiButton">Sign-in</button></a>
     </div>
   </header>
@@ -30,9 +36,14 @@
     <a href="index.html"><img src="assets/images/logo.svg" alt="iMagica Logo" class="mobileLogo"></a>
     <div class="mobileHeaderIcons">
       <div class="rightHeader">
-        <a href="checkoutProduct.html"><img id="headerCart" src="assets/images/headerCart.svg" alt="cart icon"></a>
+        <a href="checkoutProduct.html" class="cartIconContainer">
+          <img class="cartIconMain" src="assets/images/cartIcon.svg" alt="cart icon">
+          <span class="cartBadge">0</span>
+        </a>
+        <a href="signIn.html"><button class="multiButton">Sign-in</button></a>
       </div>
       <a href="account.html"><img src="assets/images/profileIcon.svg" alt="Profile"></a>
+      </div>
     </div>
   </div>
 
@@ -205,5 +216,5 @@
     </div>
   </footer>
 </body>
-
+<script src="js/app.js"></script>
 </html>
