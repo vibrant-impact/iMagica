@@ -1,22 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. SELECTORS
-    const searchInput = document.getElementById('librarySearch');
-    const sortSelect = document.getElementById('sortPacks');
-    const grid = document.querySelector('.libraryGrid');
-    const noResults = document.getElementById('noResultsMessage');
-    const homeInputSearch = document.getElementById('homeHeroSearch');
-    const homeTags = document.querySelector('.mobileStyleTagContainer');
-    const faqHeaders = document.querySelectorAll('.faqHeader');
+    // 1. SELECTORS (Full Descriptive Names)
+    const librarySearchInput = document.getElementById('librarySearch');
+    const librarySortSelect = document.getElementById('sortPacks');
+    const libraryGridContainer = document.querySelector('.libraryGrid');
+    const noResultsMessage = document.getElementById('noResultsMessage');
+    const homeHeroSearchInput = document.getElementById('homeHeroSearch');
+    const faqHeaderElements = document.querySelectorAll('.faqHeader');
 
-    // 2. PRODUCT DATA CONFIG (The "Database")
-    const allPacks = {
-
+    // 2. DATA CONFIGURATIONS (Restored Full Descriptions)
+    const allPromptPacks = {
         "cyberpunkCharacter": {
             title: "Cyberpunk Character Pack",
             price: 12,
             tags: ["Cyberpunk", "Character Design", "Futuristic"],
-            description: "Create stunning cyberpunk characters with neon aesthetics and futuristic vibes.",
-            mainImg: "assets/images/homeProduct1.png",
+            description: "Create stunning cyberpunk characters with neon aesthetics and futuristic vibes. Perfect for game design and digital art projects.",
+            mainImg: "assets/images/product1.png",
             thumbnails: ["assets/images/product1.png", "assets/images/cyberpunk1.png", "assets/images/cyberpunk2.png"],
             models: "Midjourney v6, Leonardo AI",
             settings: "--v 6.0 --style cyberpunk --s 250",
@@ -32,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Fantasy Landscape Collection",
             price: 15,
             tags: ["Landscape", "Surrealism", "Fantasy"],
-            description: "Breathtaking fantasy landscapes with magical elements.",
-            mainImg: "assets/images/productImageLarge.png",
+            description: "Breathtaking fantasy landscapes with magical elements. From floating islands to enchanted forests.",
+            mainImg: "assets/images/product2.png",
             thumbnails: ["assets/images/productImageSmall1.png", "assets/images/productImageSmall2.png", "assets/images/productImageSmall3.png"],
             models: "Stable Diffusion XL, DALL-E 3",
             settings: "--ar 16:9 --style fantasy --quality high",
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             price: 8,
             tags: ["Still Life", "Realism", "Product Photography"],
             description: "Professional product photography prompts for e-commerce and marketing.",
-            mainImg: "assets/images/homeProduct3.png",
+            mainImg: "assets/images/product3.png",
             thumbnails: ["assets/images/product3.png", "assets/images/photography1.png", "assets/images/photography2.png"],
             models: "Midjourney v6, Leonardo AI",
             settings: "--v 6.0 --style raw --s 250",
@@ -97,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         "animeCharacter": {
-            title: "Anime Character Design",
+            title: "Anime Character Bundle",
             price: 12,
             tags: ["Anime", "Comic", "Character Design", "Fantasy"],
             description: "Beautiful anime-style character designs with various expressions and poses.",
@@ -114,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         "modernArchitecture": {
-            title: "Modern Architecture",
+            title: "Modern Architecture Views",
             price: 11,
             tags: ["Architecture", "Realism", "Minimalist"],
             description: "Stunning architectural visualizations of modern buildings and structures.",
@@ -165,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         "halloweenHorror": {
-            title: "Halloween Horror",
+            title: "Halloween Horror Pack",
             price: 10,
             tags: ["Horror", "Surrealism", "Cinematic"],
             description: "Spooky Halloween-themed prompts for creative artists.",
@@ -184,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "artDecoElegance": {
             title: "Art Deco Elegance",
             price: 13,
-            tags: ["Art Deco", "Vintage", "Luxury"],
+            tags: ["Art Deco", "Vintage", "Luxury", "Fashion"],
             description: "Elegant Art Deco designs with geometric patterns and luxury aesthetics.",
             mainImg: "assets/images/product11.png",
             thumbnails: ["assets/images/artdeco1.png", "assets/images/artdeco2.png", "assets/images/artdeco3.png"],
@@ -217,65 +215,78 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- HOME PAGE SEARCH (ENTER KEY) ---
-    if (homeInputSearch) {
-        homeInputSearch.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                // Change 'homeSearch' to 'homeInputSearch' to match your selector
-                const query = homeInputSearch.value.trim(); 
-                if (query) {
-                    // Redirect to library with the search parameter
-                    window.location.href = `library.html?search=${encodeURIComponent(query)}`;
-                }
-            }
-        });
-    }
+    const subscriptionPlans = {
+        "monthly": {
+            name: "Monthly Pro",
+            price: 29.00,
+            billingTerm: "/ month",
+            savingsTag: "Cancel anytime",
+            features: ["Access to all prompt packs", "Unlimited downloads", "2 exclusive monthly packs", "Commercial license included"]
+        },
+        "annual": {
+            name: "Annual Pro",
+            price: 249.00,
+            billingTerm: "/ year",
+            savingsTag: "Save $99/year",
+            features: ["Everything in Monthly Pro", "Bonus: 12 exclusive packs", "Premium Discord community", "1-on-1 prompt consultation"]
+        },
+        "lifetime": {
+            name: "Lifetime Access",
+            price: 599.00,
+            billingTerm: "/ lifetime",
+            savingsTag: "Pay once, own forever",
+            features: ["All current and future packs", "Unlimited downloads forever", "VIP support priority", "Resell rights for prompts"]
+        }
+    };
 
     // 3. UTILITIES
-    function debounce(func, timeout = 500) {
-        let timer;
+    function debounce(callback, delay = 500) {
+        let timeoutId;
         return (...args) => {
-            clearTimeout(timer);
-            timer = setTimeout(() => { func.apply(this, args); }, timeout);
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => { callback.apply(this, args); }, delay);
         };
     }
 
-    const triggerFade = (elements) => {
-        elements.forEach(el => {
-            el.classList.remove('fadeIn');
-            void el.offsetWidth;
-            el.classList.add('fadeIn');
+    const triggerFadeInAnimation = (elements) => {
+        elements.forEach(element => {
+            element.classList.remove('fadeIn');
+            void element.offsetWidth; // Trigger reflow
+            element.classList.add('fadeIn');
         });
     };
 
-    // --- REUSABLE UI UPDATES ---
-    const updateCartStatus = () => {
-        const count = localStorage.getItem('magicaCartCount') || 0;
-        const badges = document.querySelectorAll('.cartBadge');
-        badges.forEach(badge => {
-            badge.textContent = count;
-            badge.style.display = parseInt(count) > 0 ? 'flex' : 'none';
+    // 4. UI UPDATE HELPERS
+    window.resetLibrarySearch = () => {
+        if (librarySearchInput) {
+            librarySearchInput.value = '';
+            executeLibraryFilter();
+        }
+    };
+
+    const updateCartBadgeStatus = () => {
+        const cartCount = localStorage.getItem('magicaCartCount') || 0;
+        document.querySelectorAll('.cartBadge').forEach(badge => {
+            badge.textContent = cartCount;
+            badge.style.display = parseInt(cartCount) > 0 ? 'flex' : 'none';
         });
     };
 
-    const displayCart = () => {
-        const cartList = document.getElementById('cartItemsList');
-        if (!cartList) return;
+    const renderCheckoutCart = () => {
+        const cartItemsContainer = document.getElementById('cartItemsList');
+        if (!cartItemsContainer) return;
 
         const cartItems = JSON.parse(localStorage.getItem('magicaCartItems')) || [];
-        let subtotal = 0;
+        let runningSubtotal = 0;
 
         if (cartItems.length === 0) {
-            cartList.innerHTML = "<p style='padding: 2rem; text-align: center;'>Your cart is empty.</p>";
-            if (document.getElementById('subtotalAmount')) document.getElementById('subtotalAmount').textContent = "$0.00";
-            if (document.getElementById('gstAmount')) document.getElementById('gstAmount').textContent = "$0.00";
+            cartItemsContainer.innerHTML = "<p style='padding: 2rem; text-align: center;'>Your cart is empty.</p>";
             if (document.getElementById('totalAmount')) document.getElementById('totalAmount').textContent = "$0.00";
-            updateCartStatus();
             return;
         }
 
-        cartList.innerHTML = cartItems.map((item, i) => {
-            subtotal += item.price;
+        cartItemsContainer.innerHTML = cartItems.map((item, index) => {
+            runningSubtotal += item.price;
             return `
                 <div class="productSummary">
                     <img src="${item.image}" alt="${item.title}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
@@ -284,241 +295,272 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h3>${item.title}</h3>
                             <h3 style="color: #008695;">$${item.price.toFixed(2)}</h3>
                         </div>
-                        <button class="removeItem" data-index="${i}" title="Remove Item">&times;</button>
+                        <button class="removeItem" data-index="${index}" title="Remove Item">&times;</button>
                     </div>
                 </div>
             `;
         }).join('');
 
-        const gstAmount = subtotal * 0.05;
-        const finalTotal = subtotal + gstAmount;
+        const calculatedGst = runningSubtotal * 0.05;
+        const finalGrandTotal = runningSubtotal + calculatedGst;
+
+        if (document.getElementById('subtotalAmount')) document.getElementById('subtotalAmount').textContent = `$${runningSubtotal.toFixed(2)}`;
+        if (document.getElementById('gstAmount')) document.getElementById('gstAmount').textContent = `$${calculatedGst.toFixed(2)}`;
+        if (document.getElementById('totalAmount')) document.getElementById('totalAmount').textContent = `$${finalGrandTotal.toFixed(2)}`;
+        
+        const checkoutButton = document.querySelector('.subscribeBtn');
+        if (checkoutButton && !document.getElementById('displayPlanName')) {
+            checkoutButton.textContent = `Complete Purchase - $${finalGrandTotal.toFixed(2)}`;
+        }
+    };
+
+    // 5. DYNAMIC PAGE CONTENT INJECTIONS
+    const urlSearchParameters = new URLSearchParams(window.location.search);
+    const selectedPlanId = urlSearchParameters.get('plan');
+    const selectedPackId = urlSearchParameters.get('id');
+
+    // Subscription Checkout Logic
+    if (selectedPlanId && subscriptionPlans[selectedPlanId]) {
+        const planData = subscriptionPlans[selectedPlanId];
+        if (document.getElementById('displayPlanName')) document.getElementById('displayPlanName').textContent = planData.name;
+        if (document.getElementById('planPrice')) document.getElementById('planPrice').textContent = `$${planData.price}`;
+        if (document.getElementById('planTerm')) document.getElementById('planTerm').textContent = planData.billingTerm;
+        if (document.getElementById('saveTag')) document.getElementById('saveTag').textContent = planData.savingsTag;
+        
+        const subtotal = planData.price;
+        const gst = subtotal * 0.05;
+        const total = subtotal + gst;
 
         if (document.getElementById('subtotalAmount')) document.getElementById('subtotalAmount').textContent = `$${subtotal.toFixed(2)}`;
-        if (document.getElementById('gstAmount')) document.getElementById('gstAmount').textContent = `$${gstAmount.toFixed(2)}`;
-        if (document.getElementById('totalAmount')) document.getElementById('totalAmount').textContent = `$${finalTotal.toFixed(2)}`;
+        if (document.getElementById('gstAmount')) document.getElementById('gstAmount').textContent = `$${gst.toFixed(2)}`;
+        if (document.getElementById('totalAmount')) document.getElementById('totalAmount').textContent = `$${total.toFixed(2)}`;
+        
+        const featureBulletList = document.getElementById('planBullets');
+        if (featureBulletList) featureBulletList.innerHTML = planData.features.map(feature => `<li>${feature}</li>`).join('');
+    }
 
-        const buyBtn = document.querySelector('.subscribeBtn');
-        if (buyBtn) buyBtn.textContent = `Complete Purchase - $${finalTotal.toFixed(2)}`;
-
-        document.querySelectorAll('.removeItem').forEach(btn => {
-            btn.onclick = (e) => removeCartItem(e.target.dataset.index);
-        });
-    };
-
-    const removeCartItem = (index) => {
-        let cart = JSON.parse(localStorage.getItem('magicaCartItems')) || [];
-        cart.splice(index, 1);
-        localStorage.setItem('magicaCartItems', JSON.stringify(cart));
-        localStorage.setItem('magicaCartCount', cart.length);
-        displayCart();
-        updateCartStatus();
-    };
-
-    // --- DYNAMIC PRODUCT PAGE INJECTION ---
-    const urlParams = new URLSearchParams(window.location.search);
-    const packId = urlParams.get('id');
-
-    if (packId && allPacks[packId]) {
-        const pack = allPacks[packId];
-
-        // 1. Update Text Fields
-        if (document.getElementById('prodTitle')) document.getElementById('prodTitle').textContent = pack.title;
-        if (document.getElementById('prodDesc')) document.getElementById('prodDesc').textContent = pack.description;
-        if (document.getElementById('prodPrice')) document.getElementById('prodPrice').textContent = `$${pack.price}`;
-
-        const prodModels = document.querySelector('.packDetailsLine:nth-child(2) p:last-child');
-        const prodSettings = document.querySelector('.packDetailsLine:nth-child(3) p:last-child');
-        if (prodModels) prodModels.textContent = pack.models;
-        if (prodSettings) prodSettings.textContent = pack.settings;
-
-        // 2. Update Main Image
-        const mainImg = document.getElementById('mainProdImg');
-        if (mainImg) {
-            mainImg.src = pack.mainImg;
-            mainImg.classList.add('cardImage'); // Added for Cart Logic
+    // Product Details Logic
+    if (selectedPackId && allPromptPacks[selectedPackId]) {
+        const packData = allPromptPacks[selectedPackId];
+        if (document.getElementById('prodTitle')) document.getElementById('prodTitle').textContent = packData.title;
+        if (document.getElementById('prodDesc')) document.getElementById('prodDesc').textContent = packData.description;
+        if (document.getElementById('prodPrice')) document.getElementById('prodPrice').textContent = `$${packData.price}`;
+        
+        const mainContainer = document.getElementById('mainProductCard');
+        if (mainContainer) {
+            mainContainer.setAttribute('dataTitle', packData.title);
+            mainContainer.setAttribute('dataPrice', packData.price);
         }
 
-        // 3. Update Thumbnails
-        const thumbImgs = document.querySelectorAll('#thumbGrid img');
-        if (pack.thumbnails && thumbImgs.length > 0) {
-            pack.thumbnails.forEach((src, idx) => {
-                if (thumbImgs[idx]) thumbImgs[idx].src = src;
-            });
+        const mainProductImage = document.getElementById('mainProdImg');
+        if (mainProductImage) {
+            mainProductImage.src = packData.mainImg;
+            mainProductImage.classList.add('cardImage');
         }
 
-        // 4. Update Tags
-        const tagContainer = document.getElementById('prodTags');
-        if (tagContainer) {
-            tagContainer.innerHTML = pack.tags.map(t => `<p class="cardTag">${t}</p>`).join('');
+        const thumbnailImages = document.querySelectorAll('#thumbGrid img');
+        if (packData.thumbnails && thumbnailImages.length > 0) {
+            packData.thumbnails.forEach((source, index) => { if (thumbnailImages[index]) thumbnailImages[index].src = source; });
         }
 
-        // 5. Update Included Prompts
-        const promptList = document.querySelector('.includedPromptsContainer');
-        if (promptList) {
-            const promptArea = promptList.querySelector('div') || promptList;
-            promptArea.innerHTML = pack.prompts.map(p => `
+        const promptListContainer = document.getElementById('promptList');
+        if (promptListContainer) {
+            promptListContainer.innerHTML = packData.prompts.map(promptText => `
                 <div class="promptItemContainer">
-                    <p>${p}</p>
-                    <img src="assets/images/downloadIcon.svg" alt="Download" class="copyIcon" style="cursor:pointer">
+                    <p>${promptText}</p>
+                    <img src="assets/images/downloadIcon.svg" class="copyIcon" alt="Download">
                 </div>
             `).join('');
         }
-
-        // 6. Sync the Master Card for Cart Logic
-        const productCard = document.getElementById('mainProductCard');
-        if (productCard) {
-            productCard.setAttribute('dataTitle', pack.title);
-            productCard.setAttribute('dataPrice', pack.price);
-        }
     }
 
-    // --- MASTER CLICK LISTENER ---
-    document.addEventListener('click', (e) => {
-        // Add to Cart Logic
-        const cartBtn = e.target.closest('.addToCartBtn') || e.target.closest('.cardButton') || e.target.closest('.whiteButton');
+    // 6. MASTER GLOBAL CLICK LISTENER
+    document.addEventListener('click', (event) => {
+        // Remove Item from Cart
+        if (event.target.classList.contains('removeItem')) {
+            let cart = JSON.parse(localStorage.getItem('magicaCartItems')) || [];
+            cart.splice(event.target.dataset.index, 1);
+            localStorage.setItem('magicaCartItems', JSON.stringify(cart));
+            localStorage.setItem('magicaCartCount', cart.length);
+            renderCheckoutCart();
+            updateCartBadgeStatus();
+            return;
+        }
 
-        if (cartBtn) {
-            // Check for library card OR the main product card
-            const card = cartBtn.closest('.packCard') || cartBtn.closest('.productDetailsContainer') || document.getElementById('mainProductCard');
+        // Add to Cart / Purchase Pack
+        const cartButtonTarget = event.target.closest('.addToCartBtn') || event.target.closest('.cardButton') || event.target.closest('.whiteButton');
+        if (cartButtonTarget) {
+            const productCard = cartButtonTarget.closest('.packCard') || document.getElementById('mainProductCard');
+            if (productCard) {
+                const title = productCard.getAttribute('dataTitle');
+                const priceValue = productCard.getAttribute('dataPrice');
+                const imageSource = productCard.querySelector('.cardImage') || document.getElementById('mainProdImg');
 
-            if (card) {
-                const title = card.getAttribute('dataTitle');
-                const price = card.getAttribute('dataPrice');
-                const imgElement = card.querySelector('.cardImage') || card.querySelector('#mainProdImg');
-
-                if (title && price && imgElement) {
-                    const product = {
-                        title: title,
-                        price: parseFloat(price),
-                        image: imgElement.src
-                    };
-
+                if (title && priceValue && imageSource) {
                     let cart = JSON.parse(localStorage.getItem('magicaCartItems')) || [];
-                    cart.push(product);
+                    cart.push({ title, price: parseFloat(priceValue), image: imageSource.src });
                     localStorage.setItem('magicaCartItems', JSON.stringify(cart));
                     localStorage.setItem('magicaCartCount', cart.length);
-
-                    updateCartStatus();
-
-                    // Visual feedback
-                    const originalText = cartBtn.innerHTML;
-                    cartBtn.innerHTML = "Added! ✓";
-                    setTimeout(() => { cartBtn.innerHTML = originalText; }, 1000);
+                    updateCartBadgeStatus();
+                    
+                    const originalLabel = cartButtonTarget.innerHTML;
+                    cartButtonTarget.innerHTML = "Added! ✓";
+                    setTimeout(() => { cartButtonTarget.innerHTML = originalLabel; }, 1000);
                 }
             }
         }
 
-        // Tag Filter Logic
-        const tagEl = e.target.closest('.styleTag') || e.target.closest('.cardTag');
+        // Complete Purchase Logic
+        const finalizePurchaseBtn = event.target.closest('.subscribeBtn');
+        if (finalizePurchaseBtn) {
+            const termsAgreedCheckbox = document.getElementById('termsCheckbox');
+            if (termsAgreedCheckbox && !termsAgreedCheckbox.checked) {
+                alert("Please agree to the Terms of Service to continue.");
+                return;
+            }
+            event.preventDefault();
+            const isSubscriptionPurchase = !!document.getElementById('displayPlanName');
+            
+            if (!isSubscriptionPurchase) {
+                let currentCartItems = JSON.parse(localStorage.getItem('magicaCartItems')) || [];
+                let userLibrary = JSON.parse(localStorage.getItem('purchasedPacks')) || [];
+                localStorage.setItem('purchasedPacks', JSON.stringify([...userLibrary, ...currentCartItems]));
+                localStorage.removeItem('magicaCartItems');
+                localStorage.setItem('magicaCartCount', '0');
+            }
+            finalizePurchaseBtn.innerHTML = "Processing Magic... ⏳";
+            setTimeout(() => { window.location.href = 'success.html'; }, 1500);
+        }
 
-        if (tagEl) {
-            const query = tagEl.textContent.trim(); // .trim() removes any accidental whitespace
-            if (grid) {
-                // We are on the library page
-                searchInput.value = query;
-                runFilter();
+        // Tag and Search Filtering
+        const tagTarget = event.target.closest('.styleTag') || event.target.closest('.cardTag');
+        if (tagTarget) {
+            const tagQuery = tagTarget.textContent.trim();
+            if (libraryGridContainer) {
+                librarySearchInput.value = tagQuery;
+                executeLibraryFilter();
             } else {
-                // We are on the home page (or elsewhere), redirect to library
-                window.location.href = `library.html?search=${encodeURIComponent(query)}`;
+                window.location.href = `library.html?search=${encodeURIComponent(tagQuery)}`;
+            }
+        }
+
+        // Auth Logic
+        if (event.target.classList.contains('goldButton')) {
+            if (document.querySelector('.signInForm') || document.querySelector('.joinForm')) {
+                event.preventDefault();
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'account.html';
             }
         }
     });
 
-    // --- INITIALIZE REMAINING LOGIC ---
-    updateCartStatus();
-    displayCart();
+    // 7. FILTERING & SORTING LOGIC
+    const executeLibraryFilter = () => {
+        if (!librarySearchInput) return;
+        const searchQuery = librarySearchInput.value.toLowerCase().trim();
+        const productCards = document.querySelectorAll('.packCard');
+        let visibleCount = [];
 
-    if (faqHeaders) {
-        faqHeaders.forEach(header => {
+        productCards.forEach(card => {
+            const matches = card.getAttribute('dataTitle').toLowerCase().includes(searchQuery) || 
+                          card.getAttribute('dataTags').toLowerCase().includes(searchQuery);
+            card.style.display = matches ? "flex" : "none";
+            if (matches) visibleCount.push(card);
+        });
+
+        if (noResultsMessage) noResultsMessage.style.display = visibleCount.length === 0 ? "flex" : "none";
+        triggerFadeInAnimation(visibleCount);
+    };
+
+    if (librarySearchInput) librarySearchInput.oninput = debounce(executeLibraryFilter);
+
+    if (librarySortSelect) {
+        librarySortSelect.addEventListener('change', () => {
+            const sortValue = librarySortSelect.value;
+            const cardArray = Array.from(document.querySelectorAll('.packCard'));
+
+            cardArray.sort((first, second) => {
+                if (sortValue === 'price-low') return parseFloat(first.getAttribute('dataPrice')) - parseFloat(second.getAttribute('dataPrice'));
+                if (sortValue === 'price-high') return parseFloat(second.getAttribute('dataPrice')) - parseFloat(first.getAttribute('dataPrice'));
+                if (sortValue === 'title') return first.getAttribute('dataTitle').localeCompare(second.getAttribute('dataTitle'));
+                return 0;
+            });
+            cardArray.forEach(card => libraryGridContainer.appendChild(card));
+        });
+    }
+
+    // 8. GLOBAL INITIALIZATIONS
+    if (homeHeroSearchInput) {
+        homeHeroSearchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                const query = homeHeroSearchInput.value.trim();
+                if (query) window.location.href = `library.html?search=${encodeURIComponent(query)}`;
+            }
+        });
+    }
+
+    const initialSearchParam = new URLSearchParams(window.location.search).get('search');
+    if (initialSearchParam && librarySearchInput) {
+        librarySearchInput.value = initialSearchParam;
+        executeLibraryFilter();
+    }
+
+    updateCartBadgeStatus();
+    renderCheckoutCart();
+    updateHeaderAuthStatus();
+
+    if (faqHeaderElements) {
+        faqHeaderElements.forEach(header => {
             header.onclick = () => {
-                const item = header.parentElement;
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.faqItem').forEach(i => i.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
+                const parentItem = header.parentElement;
+                const isCurrentlyActive = parentItem.classList.contains('active');
+                document.querySelectorAll('.faqItem').forEach(item => item.classList.remove('active'));
+                if (!isCurrentlyActive) parentItem.classList.add('active');
             };
         });
     }
 
-    const runFilter = () => {
-        if (!searchInput) return;
-        const query = searchInput.value.toLowerCase();
-        const cards = document.querySelectorAll('.packCard');
-        let visible = [];
-        cards.forEach(card => {
-            const matches = (card.getAttribute('dataTitle') || "").toLowerCase().includes(query) ||
-                (card.getAttribute('dataTags') || "").toLowerCase().includes(query);
-            card.style.display = matches ? "flex" : "none";
-            if (matches) visible.push(card);
-        });
-        if (noResults) noResults.style.display = visible.length === 0 ? "flex" : "none";
-        triggerFade(visible);
-    };
-
-    if (searchInput) searchInput.oninput = debounce(runFilter);
-
-    document.getElementById('footerSubscribeBtn')?.addEventListener('click', handleNewsletterSignup);
-
-    // Initial check: Did we arrive here from a home page search?
-    const initialQuery = new URLSearchParams(window.location.search).get('search');
-    if (initialQuery && searchInput) {
-        searchInput.value = initialQuery;
-        runFilter(); 
-    }
+    document.getElementById('footerSubscribeBtn')?.addEventListener('click', handleFooterNewsletterSignup);
 });
 
-// --- MODAL & GLOBAL LOGIC ---
-const openModal = () => {
-    const modalOverlay = document.getElementById('modalOverlay');
-    if (modalOverlay) modalOverlay.style.display = 'flex';
-};
-
-const closeModal = () => {
-    const modalOverlay = document.getElementById('modalOverlay');
-    if (modalOverlay) modalOverlay.style.display = 'none';
-};
-
-// Moved this here so it's globally accessible
-const handleNewsletterSignup = () => {
-    const emailInput = document.getElementById('footerEmail');
-    const inputGroup = document.getElementById('newsletterInputGroup');
-    const successSection = document.getElementById('footerSuccessMessage');
-    const footerText = document.querySelector('.footerForm p');
-
-    if (emailInput && emailInput.value.includes('@')) {
-        inputGroup.style.display = 'none';
-        if (footerText) footerText.style.display = 'none';
-        successSection.style.display = 'block';
-        successSection.classList.add('fadeIn');
-        emailInput.value = '';
-    } else {
-        alert("Please enter a valid email address.");
+// 9. OUTSIDE SCOPE HELPERS
+const updateHeaderAuthStatus = () => {
+    const authDisplay = document.getElementById('authContainer');
+    if (authDisplay) {
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            authDisplay.innerHTML = `<a href="account.html"><img src="assets/images/profileIcon.svg" style="width: 32px;" alt="Profile"></a>`;
+        } else {
+            authDisplay.innerHTML = `<a href="signIn.html" id="navSignInLink"><button class="multiButton">Sign-in</button></a>`;
+        }
     }
 };
 
-const handleStarterForm = () => {
-    const starterModal = document.getElementById('starterModal');
-    const successModal = document.getElementById('successModal');
-    const emailValue = document.getElementById('modalEmail')?.value;
+const handleFooterNewsletterSignup = () => {
+    if (document.getElementById('footerEmail')?.value.includes('@')) {
+        document.getElementById('newsletterInputGroup').style.display = 'none';
+        document.getElementById('footerSuccessMessage').style.display = 'block';
+    }
+};
 
-    if (emailValue && emailValue.includes('@')) {
-        starterModal.style.display = 'none';
-        successModal.style.display = 'flex';
+const handleModalNewsletterSignup = () => {
+    if (document.getElementById('modalEmail')?.value.includes('@')) {
+        document.getElementById('starterModal').style.display = 'none';
+        document.getElementById('successModal').style.display = 'flex';
         localStorage.setItem('hasFreePack', 'true');
-    } else {
-        alert("Please enter a valid email address.");
     }
 };
 
-// Global Listeners
-document.getElementById('closeStarter')?.addEventListener('click', closeModal);
-document.getElementById('closeSuccess')?.addEventListener('click', closeModal);
-document.getElementById('getFreePackBtn')?.addEventListener('click', handleStarterForm);
-document.getElementById('footerSubscribeBtn')?.addEventListener('click', handleNewsletterSignup);
+const openEntryModal = () => { 
+    const modal = document.getElementById('modalOverlay');
+    if (modal) modal.style.display = 'flex'; 
+};
 
-// Only show modal if they haven't signed up before
-if (!localStorage.getItem('hasFreePack')) {
-    setTimeout(openModal, 5000);
-}
+const closeEntryModal = () => { 
+    const modal = document.getElementById('modalOverlay');
+    if (modal) modal.style.display = 'none'; 
+};
 
-
-
+document.getElementById('closeStarter')?.addEventListener('click', closeEntryModal);
+document.getElementById('closeSuccess')?.addEventListener('click', closeEntryModal);
+document.getElementById('getFreePackBtn')?.addEventListener('click', handleModalNewsletterSignup);
+if (!localStorage.getItem('hasFreePack')) setTimeout(openEntryModal, 5000);
