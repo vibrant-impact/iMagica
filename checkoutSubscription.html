@@ -53,40 +53,35 @@
       <div class="summaryContainer">
         <h2>Order Summary</h2>
         <div class="orderPlan">
-          <h3>Annual Pro</h3>
+          <h3 id="displayPlanName">Annual Pro</h3>
           <div class="planPriceContainer">
             <span id="planPrice">$249</span>
-            <span class="perYear">/ year</span>
+            <span id="planTerm" class="perYear">/ year</span>
           </div>
           <p id="saveTag">Save $99/year</p>
         </div>
 
         <div class="orderDetails">
           <h3>Included:</h3>
-          <ul class="customBullets2">
-            <li>Everything in Monthly Pro</li>
-            <li>Save $99 per year</li>
-            <li>Bonus: 12 exclusive packs</li>
-            <li>Lifetime updates on purchased packs</li>
-            <li>Premium Discord community</li>
-            <li>Monthly 1-on-1 prompt consultation</li>
-          </ul>
+          <ul id="planBullets" class="customBullets2">
+            </ul>
         </div>
 
         <div class="priceBreakdown">
           <div class="priceBreakdownRow">
             <p>Subtotal</p>
-            <p>$249</p>
+            <p id="subtotalAmount">$0.00</p>
           </div>
           <div class="priceBreakdownRow">
-            <p>Tax</p>
-            <p>$0.00</p>
-          </div>
-          <div class="totalContainer">
-            <p>Total</p>
-            <p>$249</p>
+            <p>GST (5%)</p>
+            <p id="gstAmount">$0.00</p>
           </div>
         </div>
+          <div class="totalContainer">
+            <p>Total</p>
+            <p id="totalAmount">$0.00</p>
+          </div>
+        
 
         <div id="guaranteeContainer">
           <h3>7-Day Money-Back Guarantee:</h3>

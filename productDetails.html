@@ -46,25 +46,24 @@
   </div>
 
   <main>
-    <div class="productDetailsContainer">
-
+    <div class="productDetailsContainer" id="mainProductCard">
       <div class="productImageContainer">
         <div class="mainImage">
-          <img src="assets/images/productImageLarge.png" alt="Product Image">
+          <img id="mainProdImg" src="assets/images/productImageLarge.png" alt="Product Image">
         </div>
-        <div class="thumbnailGrid">
-          <img src="assets/images/productImageSmall1.png" alt="Product Image">
-          <img src="assets/images/productImageSmall2.png" alt="Product Image">
-          <img src="assets/images/productImageSmall3.png" alt="Product Image">
+        <div id="thumbGrid" class="thumbnailGrid">
+          <img class="thumbnailImg" src="assets/images/productImageSmall1.png" alt="Product Image">
+          <img class="thumbnailImg" src="assets/images/productImageSmall2.png" alt="Product Image">
+          <img class="thumbnailImg" src="assets/images/productImageSmall3.png" alt="Product Image">
         </div>
       </div>
 
       <div class="productInfo">
-        <div class="cardTags">
+        <div class="cardTags" id="prodTags">
           <p class="cardTag">Landscape</p>
           <p class="cardTag">Surrealism</p>
         </div>
-        <h1 class="productHeading">Fantasy Landscape Collection</h1>
+        <h1 class="productHeading" id="prodTitle">Fantasy Landscape Collection</h1>
         <div class="ratings">
           <div class="starRating">
             <img class="ratingStar" src="assets/images/ratingStar.svg" alt="Filled Star">
@@ -75,7 +74,7 @@
           </div>
           <p>4.9 (127 reviews)</p>
         </div>
-        <p>Breathtaking fantasy landscapes with magical elements. From floating islands to enchanted forests.</p>
+        <p id="prodDesc">Breathtaking fantasy landscapes with magical elements. From floating islands to enchanted forests.</p>
         
         <div class="packDetailsContainer">
           <h3>Pack Details</h3>
@@ -89,7 +88,7 @@
           </div>
           <div class="packDetailsLine">
             <p>Settings</p>
-            <p>--ar 16:9 --style fantasy --quality high</p>
+            <p>--ar 16:9 --ar 3:2 --ar 1:1 --quality high</p>
           </div>
         </div>
 
@@ -98,104 +97,24 @@
             <p>Price</p>
             <p>5 Prompts</p>
           </div>
-          <p class="packPrice">$15</p>
-          <button class="whiteButton">
+          <p class="packPrice" id="prodPrice">$15</p>
+          <button class="whiteButton addToCartBtn" id="detailAddToCart">
             <img class="purchaseCartIcon" src="assets/images/blackCartIcon.svg" alt="Cart Icon">
             Purchase Pack
           </button>
         </div>
       </div>
     </div>
-
-    <div class="mobileProductDetailsContainer">
-
-      <div class="mobileProductHeading">
-        <h1 class="productHeading">Fantasy Landscape Collection</h1>
-        <div class="ratings">
-          <div class="starRating">
-            <img class="ratingStar" src="assets/images/ratingStar.svg" alt="Filled Star">
-            <img class="ratingStar" src="assets/images/ratingStar.svg" alt="Filled Star">
-            <img class="ratingStar" src="assets/images/ratingStar.svg" alt="Filled Star">
-            <img class="ratingStar" src="assets/images/ratingStar.svg" alt="Filled Star">
-            <img class="ratingStar" src="assets/images/ratingStar.svg" alt="Filled Star">
-          </div>
-          <p>4.9 (127 reviews)</p>
-        </div>
-        <p>Breathtaking fantasy landscapes with magical elements. From floating islands to enchanted forests.</p>
-      </div>
-
-      <div class="productImageContainer">
-        <div class="mainImage">
-          <img src="assets/images/productImageLarge.png" alt="Product Image">
-        </div>
-        <div class="thumbnailGrid">
-          <img src="assets/images/productImageSmall1.png" alt="Product Image">
-          <img src="assets/images/productImageSmall2.png" alt="Product Image">
-          <img src="assets/images/productImageSmall3.png" alt="Product Image">
-        </div>
-      </div>
-
-      <div class="packDetailsContainer">
-          <h3>Pack Details</h3>
-          <div class="packDetailsLine">
-            <p>Format</p>
-            <p>Digital Art</p>
-          </div>
-          <div class="packDetailsLine">
-            <p>Recommended Models</p>
-            <p>Stable Diffusion XL, DALL-E 3</p>
-          </div>
-          <div class="packDetailsLine">
-            <p>Settings</p>
-            <p>--ar 16:9 --style fantasy --quality high</p>
-          </div>
-        </div>
-
-        <div class="packPurchaseContainer">
-          <div class="packDetailsRow1">
-            <p>Price</p>
-            <p>5 Prompts</p>
-          </div>
-          <p class="packPrice">$15</p>
-          <button class="whiteButton">
-            <img class="purchaseCartIcon" src="assets/images/blackCartIcon.svg" alt="Cart Icon">
-            Purchase Pack
-          </button>
-        </div>
-      </div>
-    </div>
-
-    </div>
-
-
+    
     <div class="includedPromptsContainer">
-      <h3>Included Prompts</h3>
-      <div class="promptItemContainer">
-        <p>Cobblestone path leading to ancient mystical portal to fantasy dreamscape --ar 21:9</p>
-        <img src="assets/images/downloadIcon.svg" alt="Download Icon">
-      </div>
-      <div class="promptItemContainer">
-        <p>Ethereal night landscape with calm mirror lake in deep indigo tones --ar 16:9</p>
-        <img src="assets/images/downloadIcon.svg" alt="Download Icon">
-      </div>
-      <div class="promptItemContainer">
-        <p>Majestic medieval fantasy castle perched on lush green mountainous cliffside --ar 16:9</p>
-        <img src="assets/images/downloadIcon.svg" alt="Download Icon">
-      </div>
-      <div class="promptItemContainer">
-        <p>Glowing desert oasis stream at dusk with palm trees and sand dunes --ar 16:9</p>
-        <img src="assets/images/downloadIcon.svg" alt="Download Icon">
-      </div>
-      <div class="promptItemContainer">
-        <p>Whimsical floating islands with waterfalls falling into the infinite clouds below--ar 16:9</p>
-        <img src="assets/images/downloadIcon.svg" alt="Download Icon">
-      </div>
+        <h3>Included Prompts</h3>
+        <div id="promptList"></div>
     </div>
 
     <div class="unlimitedCTAContainer">
       <h1>Want unlimited access to all packs?</h2>
         <p>Subscribe to get access to this pack and 100+ others for one low monthly price.</p>
-        <button class="multiButton">View Subscription Plans</button>
+        <a href="plans.html"><button class="multiButton">View Subscription Plans</button></a>
     </div>
 
   </main>
