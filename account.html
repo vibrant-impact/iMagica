@@ -197,12 +197,16 @@
         <h2>Refund Policy</h2>
       </div>
     </div>
-    <div class="footerForm">
+    <div class="footerForm" id="footerSignupContainer">
       <h3>Stay Updated</h3>
       <p>Get weekly AI prompt tips and new pack releases delivered to your inbox.</p>
-      <div>
-        <input type="email" placeholder="Enter your email address">
-        <button class="multiButton">Subscribe</button>
+      <div id="newsletterInputGroup">
+        <input type="email" id="footerEmail" placeholder="Enter your email address">
+        <button class="multiButton" id="footerSubscribeBtn">Subscribe</button>
+      </div>
+      <div id="footerSuccessMessage" style="display: none; text-align: center;">
+        <h3 style="color: #ffbe38;">Thanks for joining! ✨</h3>
+        <p>Check your inbox for your first tip soon.</p>
       </div>
     </div>
     <div class="copyrightSection">

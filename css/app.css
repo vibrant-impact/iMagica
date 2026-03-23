@@ -357,7 +357,7 @@ footer {
 .styleTagContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .styleTag {
@@ -369,6 +369,7 @@ footer {
   font-size: 0.875rem;
   color: #b1b5b9;
   cursor: pointer;
+  pointer-events: auto;
   transition: all 0.2s ease;
 }
 
@@ -445,7 +446,7 @@ footer {
 
 .cardTags {
   display: flex;
-  gap: 1rem;
+  gap: 0.2rem;
 }
 
 .cardTag {
@@ -453,8 +454,8 @@ footer {
   border: #008695 1px solid;
   width: fit-content;
   border-radius: 24px;
-  padding: 0.4rem 0.8rem;
-  font-size: 0.75rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.7rem;
   color: #008695;
   align-content: center;
   cursor: pointer;
@@ -2307,6 +2308,132 @@ input[type="text"], input[type="email"], input[type="password"], input[type="nam
 .planBtn {
   width: 100%; 
   max-width: 250px;
+}
+
+/* Modal Container */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalCard {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 3rem;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Success State Override */
+.modalCard.successState {
+    background: #008695;
+    color: #ffffff;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.modalCard h1 {
+    font-size: 1.8rem;
+    color: #061e28;
+    margin-bottom: 1rem;
+}
+
+.successState h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #b1b5b9;
+}
+
+.modalIconContainer {
+    background: #ffbe38;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+}
+
+.modalFeatures {
+    background: #e4eff5;
+    border: 1px solid #008695;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: left;
+    list-style: none;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.modalFeatures li::before {
+    content: "✓ ";
+    color: #008695;
+    font-weight: bold;
+}
+
+.modalInputGroup {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.modalInputGroup label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.modalInputGroup input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1.5px solid #008695;
+    border-radius: 8px;
+}
+
+.modalInputGroup img {
+    width: 20px;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(20%);
+  }
+
+.modalSubmitBtn {
+    width: 100%;
+    margin: 1.5rem 0;
+    height: 3.5rem;
+    align-content: center;
+}
+
+.footerLinks h2:hover {
+    color: #00e9ff; /* The iMagica Neon Blue */
+    padding-left: 5px; /* Subtle "nudge" effect */
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 /* --- Hide Mobile UI by default --- */

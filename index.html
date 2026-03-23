@@ -79,7 +79,7 @@
             <p class="styleTag">Watercolor</p>
             <p class="styleTag">Pop Art</p>
             <p class="styleTag">Product Photography</p>
-            <p class="styleTag">Portraits</p>
+            <p class="styleTag">Portrait</p>
             <p class="styleTag">Anime</p>
             <p class="styleTag">Cinematic</p>
             <p class="styleTag">Concept Art</p>
@@ -87,6 +87,7 @@
             <p class="styleTag">Illustrative</p>
             <p class="styleTag">Nature</p>
             <p class="styleTag">Fantasy</p>
+            <p class="styleTag">Modern</p>
             <p class="styleTag">Surrealism</p>
             <p class="styleTag">Still Life</p>
             <p class="styleTag">Comic</p>
@@ -98,6 +99,7 @@
             <p class="styleTag">Art Deco</p>
             <p class="styleTag">Minimalist</p>
             <p class="styleTag">Pixar</p>
+            <p class="styleTag">Experimental</p>
           </div>
         </div>
         <a href="library.html"><button class="homeMultiButton">View All Packs</button></a>
@@ -310,12 +312,16 @@
         <h2>Refund Policy</h2>
       </div>
     </div>
-    <div class="footerForm">
+    <div class="footerForm" id="footerSignupContainer">
       <h3>Stay Updated</h3>
       <p>Get weekly AI prompt tips and new pack releases delivered to your inbox.</p>
-      <div>
-        <input type="email" placeholder="Enter your email address">
-        <button class="multiButton">Subscribe</button>
+      <div id="newsletterInputGroup">
+        <input type="email" id="footerEmail" placeholder="Enter your email address">
+        <button class="multiButton" id="footerSubscribeBtn">Subscribe</button>
+      </div>
+      <div id="footerSuccessMessage" style="display: none; text-align: center;">
+        <h3 style="color: #ffbe38;">Thanks for joining! ✨</h3>
+        <p>Check your inbox for your first tip soon.</p>
       </div>
     </div>
     <div class="copyrightSection">
@@ -328,6 +334,50 @@
       </div>
     </div>
   </footer>
+
+  <div id="modalOverlay" class="modalOverlay" style="display: none;">
+    
+    <div id="starterModal" class="modalCard">
+        <button class="closeBtn" id="closeStarter">&times;</button>
+        <div class="modalIconContainer">
+            <img src="assets/images/giftIcon.png" alt="Gift Icon">
+        </div>
+        <h1>Get Your Free Starter Pack!</h1>
+        <p class="modalSubtext">Join our community and receive 10 premium AI prompts absolutely free.</p>
+        
+        <ul class="modalFeatures">
+            <li>10 hand-picked premium prompts</li>
+            <li>Commercial usage rights included</li>
+            <li>Weekly tips & new prompt updates</li>
+            <li>Works with Midjourney, Stable Diffusion, and DALL-E</li>
+        </ul>
+
+        <div class="modalInputGroup">
+            <label for="modalEmail"><img src="assets/images/emailIcon.png" alt=""> Email Address</label>
+            <input type="email" id="modalEmail" placeholder="you@example.com">
+        </div>
+
+        <div class="modalCheckbox">
+            <input type="checkbox" id="modalConsent" checked>
+            <label for="modalConsent">Yes! Send me weekly AI prompt tips, new pack releases, and special offers. (You can unsubscribe anytime)</label>
+        </div>
+
+        <button class="multiButton modalSubmitBtn" id="getFreePackBtn">Get My Free Pack Now</button>
+        <p class="modalLegal">By signing up, you agree to our Privacy Policy. <br> We respect your inbox and won't spam.</p>
+    </div>
+
+    <div id="successModal" class="modalCard successState" style="display: none;">
+        <button class="closeBtn" id="closeSuccess">&times;</button>
+        <h1>Your Toolkit is Ready!</h1>
+        <div class="successBody">
+            <p>We've added your <strong>Free Starter Pack</strong><br>to your library.</p>
+            <p>We can't wait to see what you create!</p>
+        </div>
+        <a href="account.html" class="multiButton modalSubmitBtn">Go To Your Library</a>
+    </div>
+
+</div>
+
 </body>
 <script src="js/app.js"></script>
 
